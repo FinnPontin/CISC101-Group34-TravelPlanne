@@ -1,3 +1,5 @@
+**Module 1 — Intake & Setup**
+
 Collect essential details:
 
 - Destination(s)
