@@ -1,4 +1,7 @@
-## **Module 3 — Feasibility & Guardrails**
+Change Log (2025-11-19):
+– Updated distance rule to prioritize activites within 10-minute when user selects “short walks only.”
+
+## **Module 3 — Feasibility & Guardrails**                                                                                                                                                                                          
 
 Apply these **if/else** checks to make sure plans are realistic and adapt to edge cases:
 
@@ -12,7 +15,7 @@ Apply these **if/else** checks to make sure plans are realistic and adapt to edg
 
 3. **Too Far or Long Travel**
    
-   - If transfer between activities > 25 min or > 5 km → pick a closer alternative or add a short transit hop.
+   - If transfer between activities > 25 min or > 5 km OR the user selected “short walks only” → prioritize activities within 10 minutes walking distance and automatically propose the closest viable alternative.
 
 4. **Weather Swap**
    
