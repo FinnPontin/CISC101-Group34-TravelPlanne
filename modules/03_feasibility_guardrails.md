@@ -1,40 +1,55 @@
 Change Log (2025-11-19):
 – Updated distance rule to prioritize activites within 10-minute when user selects “short walks only.”
 
-## **Module 3 — Feasibility & Guardrails**                                                                                                                                                                                          
-
-Apply these **if/else** checks to make sure plans are realistic and adapt to edge cases:
-
-1. **Closed Venue**
-   
-   - If a museum or park is closed on that day → suggest a similar indoor option nearby.
-
-2. **Over-Budget Meal**
-   
-   - If meal cost > user’s budget → switch to a cheaper restaurant of similar cuisine.
-
-3. **Too Far or Long Travel**
-   
-   - If transfer between activities > 25 min or > 5 km OR the user selected “short walks only” → prioritize activities within 10 minutes walking distance and automatically propose the closest viable alternative.
-
-4. **Weather Swap**
-   
-   - If rain or cold season likely → make sure at least one indoor activity replaces outdoor ones.
-
-5. **Time Overrun**
-   
-   - If total planned time > available hours → shorten lunch or pick a nearer stop.
-
-6. **Mobility Needs**
-   
-   - If mobility limits noted → choose step-free, short-walk options and include breaks.
-
-7. **Dietary Needs**
-   
-   - If user is vegan or has dietary constraints → ensure all meals match or swap with compliant ones.
-
-8. **Bookings**
-   
-   - If activity usually needs a ticket → just remind the user to book it; never simulate bookings.
+**Module 3 — Feasibility & Guardrails**
+START
+  |
+  v
+Is venue closed? (museum/park)
+  ├─ YES → Suggest similar indoor option nearby
+  └─ NO → Continue
+  |
+  v
+Are total daily meal costs > total daily meal budget?
+  ├─ YES → Switch to cheaper restaurant of similar cuisine
+  └─ NO → Continue
+  |
+  v
+Is transfer > 25 min OR > 5 km OR "short walks only" selected?
+  ├─ YES → Prioritize activities within 10 min walking distance
+  │         → Propose closest viable alternative
+  └─ NO → Continue
+  |
+  v
+Is rain or cold season likely?
+  ├─ YES → Replace at least one outdoor activity with indoor option
+  └─ NO → Continue
+  |
+  v
+Does total planned time > available hours?
+  ├─ YES → Shorten lunch OR pick nearer stop
+  └─ NO → Continue
+  |
+  v
+Are mobility limits noted?
+  ├─ YES → Choose step-free, short-walk options
+  │         Avoid steep paths
+  │         Include breaks
+  │         Ensure accessibility washrooms en route
+  └─ NO → Continue
+  |
+  v
+Are dietary needs noted (vegan/constraints)?
+  ├─ YES → Ensure all meals compliant
+  │         Restaurants must have explicit menu labelling for dietary compliance
+  └─ NO → Continue
+  |
+  v
+Does activity usually need a ticket?
+  ├─ YES → Remind user to book (never simulate booking)
+  └─ NO → Continue
+  |
+  v
+END
 
 
